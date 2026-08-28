@@ -20,10 +20,17 @@ projeto-chamados/
 ├── README.md
 ├── docs/
 │   ├── planejamento-semana-1.md
-│   └── diagrama-arquitetura.md
+│   ├── diagrama-arquitetura.md
+|   └── contrato-api-chamados.md
 ├── frontend/
 ├── backend/
 └── database/
 ```
 
-O planejamento da atividade está em `docs/planejamento-semana-1.md`. O diagrama da arquitetura está em `docs/diagrama-arquitetura.md`.
+## Documentação
+
+A documentação do projeto está organizada na pasta `docs/`:
+
+* `planejamento-semana-1.md` — planejamento inicial, definição do problema, escopo, usuários, requisitos e fluxo principal.
+* `diagrama-arquitetura.md` — representação inicial da arquitetura do sistema.
+* `contrato-api-chamados.md` — contrato inicial da API de chamados, contendo os recursos, endpoints, métodos HTTP, parâmetros, formatos JSON, respostas e principais códigos de status.
