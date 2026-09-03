@@ -42,6 +42,7 @@ projeto-chamados/
 │   ├── planejamento-semana-1.md
 │   ├── diagrama-arquitetura.md
 |   └── contrato-api-chamados.md
+├── tests/
 ├── frontend/
 └── README.md
 ```
