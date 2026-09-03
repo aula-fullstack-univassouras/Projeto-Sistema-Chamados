@@ -39,9 +39,10 @@ projeto-chamados/
 │   └── requirements.txt
 ├── database/
 ├── docs/
-│   ├── planejamento-semana-1.md
-│   ├── diagrama-arquitetura.md
-|   └── contrato-api-chamados.md
+│   ├── api-chamados-semana-3.md
+│   ├── contrato-api-chamados-semana-2.md 
+│   ├── diagrama-arquitetura-semana-1.md
+|   └── planejamento-semana-1.md
 ├── frontend/
 ├── tests/
 └── README.md
