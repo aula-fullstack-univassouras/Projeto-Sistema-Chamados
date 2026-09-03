@@ -51,9 +51,10 @@ projeto-chamados/
 
 A documentação do projeto está organizada na pasta `docs/`:
 
+- `api-chamados-semana-3.md` — documentação dos endpoints implementados, com exemplos de requisições, respostas e validações.
+* `contrato-api-chamados-semana-2.md` — contrato inicial da API de chamados, contendo os recursos, endpoints, métodos HTTP, parâmetros, formatos JSON, respostas e principais códigos de status.
+* `diagrama-arquitetura-semana-1.md` — representação inicial da arquitetura do sistema.
 * `planejamento-semana-1.md` — planejamento inicial, definição do problema, escopo, usuários, requisitos e fluxo principal.
-* `diagrama-arquitetura.md` — representação inicial da arquitetura do sistema.
-* `contrato-api-chamados.md` — contrato inicial da API de chamados, contendo os recursos, endpoints, métodos HTTP, parâmetros, formatos JSON, respostas e principais códigos de status.
 
 ## Desenvolvimento
 
