@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chamados</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Gerenciamento de Chamados</h1>
+        <a href="index.html">Início</a>
+    </header>
+
+    <main>
+
+        <section class="card">
+
+            <h2>Novo Chamado</h2>
+
+            <form id="formChamado">
+
+                <label for="titulo">
+                    Título
+                </label>
+
+                <input
+                    type="text"
+                    id="titulo"
+                    placeholder="Digite o título"
+                    required
+                >
+
+                <label for="descricao">
+                    Descrição
+                </label>
+
+                <textarea
+                    id="descricao"
+                    placeholder="Digite a descrição"
+                    required
+                ></textarea>
+
+                <label for="status">
+                    Status
+                </label>
+
+                <select id="status">
+
+                    <option value="aberto">
+                        Aberto
+                    </option>
+
+                    <option value="em_andamento">
+                        Em andamento
+                    </option>
+
+                    <option value="fechado">
+                        Fechado
+                    </option>
+
+                </select>
+
+                <button type="submit">
+                    Cadastrar Chamado
+                </button>
+
+            </form>
+
+            <p id="mensagem"></p>
+
+        </section>
+
+
+        <section class="card">
+
+            <h2>Lista de Chamados</h2>
+
+            <button onclick="carregarChamados()">
+                Atualizar Lista
+            </button>
+
+            <div id="listaChamados">
+                Carregando...
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="js/app.js"></script>
+
+</body>
+</html>
