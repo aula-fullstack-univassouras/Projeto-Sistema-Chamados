@@ -29,24 +29,49 @@ API REST desenvolvida com Python e FastAPI para gerenciamento de chamados.
 
 ```text
 projeto-chamados/
+│
 ├── backend/
 │   ├── controllers/
 │   ├── data/
+│   │   └── chamados.py
 │   ├── models/
+│   │   └── chamado.py
 │   ├── routes/
 │   ├── services/
-│   ├── main.py
-│   └── requirements.txt
-├── database/
+│   │   └── service.py
+│   ├── controller.py
+│   └── router.py
+│
+├── backend/database/
+│   └── 001_criar_tabela_chamados.sql
+│
 ├── docs/
+│   ├── API-CHAMADOS.md
 │   ├── api-chamados-semana-3.md
 │   ├── contrato-api-chamados-semana-2.md 
 │   ├── diagrama-arquitetura-semana-1.md
 |   └── planejamento-semana-1.md
+│
 ├── frontend/
+│   ├── css/
+│   ├── js/
+│   ├── chamados.html
+│   ├── index.html
+│   ├── app.js
+│   └── style.css
+│
 ├── tests/
+│   ├── test_chamados_get.py
+│   ├── test_chamados_post.py
+│   └── test_chamados_validacao.py
+│
+├── .gitignore
+├── database
+├── main.py
+├── requirements.txt
 └── README.md
 ```
+
 
 ## Documentação
 
