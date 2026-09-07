@@ -1,39 +1,74 @@
 from fastapi import APIRouter
 
-from models.chamado import Chamado
+from backend.models.chamado import Chamado
+from backend.models.chamado import ChamadoCreate
+from backend.models.chamado import ChamadoUpdate
 
-from controllers.controller import (
-    get_chamados,
-    get_chamado,
-    post_chamado,
-    put_chamado,
-    delete_chamado
+from backend.controller import criar
+from backend.controller import listar
+from backend.controller import buscar
+from backend.controller import atualizar
+from backend.controller import excluir
+from backend.controller import verificar_id
+
+
+router = APIRouter(
+    prefix="/chamados",
+    tags=["Chamados"]
 )
 
 
-router = APIRouter()
+@router.post(
+    "",
+    response_model=Chamado,
+    status_code=201
+)
+def criar_chamado(dados: ChamadoCreate):
+    return criar(dados)
 
 
-@router.get("/chamados")
-def listar():
-    return get_chamados()
+@router.get(
+    "",
+    response_model=list[Chamado]
+)
+def listar_chamados():
+    return listar()
 
 
-@router.get("/chamados/{chamado_id}")
-def buscar(chamado_id: int):
-    return get_chamado(chamado_id)
+@router.get(
+    "/{chamado_id}",
+    response_model=Chamado
+)
+def buscar_chamado(chamado_id: int):
+    verificar_id(chamado_id)
+    return buscar(chamado_id)
 
 
-@router.post("/chamados")
-def criar(chamado: Chamado):
-    return post_chamado(chamado)
+@router.put(
+    "/{chamado_id}",
+    response_model=Chamado
+)
+def atualizar_chamado(
+    chamado_id: int,
+    dados: ChamadoUpdate
+):
+    verificar_id(chamado_id)
+    return atualizar(chamado_id, dados)
 
 
-@router.put("/chamados/{chamado_id}")
-def atualizar(chamado_id: int, chamado: Chamado):
-    return put_chamado(chamado_id, chamado)
+@router.delete(
+    "/{chamado_id}"
+)
+def excluir_chamado(chamado_id: int):
+    verificar_id(chamado_id)
+    return excluir(chamado_id)
 
 
-@router.delete("/chamados/{chamado_id}")
-def excluir(chamado_id: int):
-    return delete_chamado(chamado_id)
+def informacoes_rotas():
+    return {
+        "post": "/chamados",
+        "get": "/chamados",
+        "get_id": "/chamados/{id}",
+        "put": "/chamados/{id}",
+        "delete": "/chamados/{id}"
+    }

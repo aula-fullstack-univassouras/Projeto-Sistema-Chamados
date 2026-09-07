@@ -1,54 +1,80 @@
-from models.chamado import Chamado
+from fastapi import HTTPException
 
-from services.service import (
-    listar_chamados,
-    buscar_chamado,
-    criar_chamado,
-    atualizar_chamado,
-    excluir_chamado
-)
+from backend.models.chamado import ChamadoCreate
+from backend.models.chamado import ChamadoUpdate
 
-
-def get_chamados():
-    return listar_chamados()
+from backend.services.service import criar_chamado
+from backend.services.service import listar_chamados
+from backend.services.service import buscar_chamado
+from backend.services.service import atualizar_chamado
+from backend.services.service import excluir_chamado
 
 
-def get_chamado(chamado_id: int):
-    chamado = buscar_chamado(chamado_id)
-
-    if chamado is None:
-        return {"erro": "Chamado não encontrado"}
-
-    return chamado
-
-
-def post_chamado(chamado: Chamado):
-    return criar_chamado(
-        chamado.titulo,
-        chamado.descricao
-    )
-
-
-def put_chamado(chamado_id: int, chamado: Chamado):
-    resultado = atualizar_chamado(
-        chamado_id,
-        chamado.titulo,
-        chamado.descricao,
-        chamado.status
-    )
+def criar(dados: ChamadoCreate):
+    resultado = criar_chamado(dados)
 
     if resultado is None:
-        return {"erro": "Chamado não encontrado"}
+        raise HTTPException(
+            status_code=400,
+            detail="Não foi possível criar o chamado"
+        )
 
     return resultado
 
 
-def delete_chamado(chamado_id: int):
+def listar():
+    return listar_chamados()
+
+
+def buscar(chamado_id: int):
+    resultado = buscar_chamado(chamado_id)
+
+    if resultado is None:
+        raise HTTPException(
+            status_code=404,
+            detail="Chamado não encontrado"
+        )
+
+    return resultado
+
+
+def atualizar(
+    chamado_id: int,
+    dados: ChamadoUpdate
+):
+    resultado = atualizar_chamado(
+        chamado_id,
+        dados
+    )
+
+    if resultado is None:
+        raise HTTPException(
+            status_code=404,
+            detail="Chamado não encontrado"
+        )
+
+    return resultado
+
+
+def excluir(chamado_id: int):
     resultado = excluir_chamado(chamado_id)
 
     if not resultado:
-        return {"erro": "Chamado não encontrado"}
+        raise HTTPException(
+            status_code=404,
+            detail="Chamado não encontrado"
+        )
 
     return {
         "mensagem": "Chamado excluído com sucesso"
     }
+
+
+def verificar_id(chamado_id: int):
+    if chamado_id <= 0:
+        raise HTTPException(
+            status_code=400,
+            detail="ID deve ser maior que zero"
+        )
+
+    return True

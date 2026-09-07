@@ -1,57 +1,78 @@
-from data.chamados import chamados
+from backend.data import chamados
+from backend.models.chamado import ChamadoCreate
+from backend.models.chamado import ChamadoUpdate
+
+
+def iniciar_banco():
+    chamados.criar_tabela()
+
+
+def criar_chamado(dados: ChamadoCreate):
+    titulo = dados.titulo.strip()
+    descricao = dados.descricao.strip()
+    status = dados.status
+
+    chamado_id = chamados.inserir(
+        titulo,
+        descricao,
+        status
+    )
+
+    return chamados.buscar_por_id(chamado_id)
 
 
 def listar_chamados():
-    return chamados
+    return chamados.listar()
 
 
 def buscar_chamado(chamado_id: int):
-    for chamado in chamados:
-        if chamado["id"] == chamado_id:
-            return chamado
-
-    return None
-
-
-def criar_chamado(titulo: str, descricao: str):
-    novo_id = max([c["id"] for c in chamados], default=0) + 1
-
-    novo_chamado = {
-        "id": novo_id,
-        "titulo": titulo,
-        "descricao": descricao,
-        "status": "aberto"
-    }
-
-    chamados.append(novo_chamado)
-
-    return novo_chamado
+    return chamados.buscar_por_id(chamado_id)
 
 
 def atualizar_chamado(
     chamado_id: int,
-    titulo: str,
-    descricao: str,
-    status: str
+    dados: ChamadoUpdate
 ):
-    chamado = buscar_chamado(chamado_id)
+    atual = chamados.buscar_por_id(chamado_id)
 
-    if chamado is None:
+    if atual is None:
         return None
 
-    chamado["titulo"] = titulo
-    chamado["descricao"] = descricao
-    chamado["status"] = status
+    titulo = dados.titulo
+    descricao = dados.descricao
+    status = dados.status
 
-    return chamado
+    if titulo is None:
+        titulo = atual["titulo"]
+
+    if descricao is None:
+        descricao = atual["descricao"]
+
+    if status is None:
+        status = atual["status"]
+
+    chamados.atualizar(
+        chamado_id,
+        titulo.strip(),
+        descricao.strip(),
+        status
+    )
+
+    return chamados.buscar_por_id(chamado_id)
 
 
 def excluir_chamado(chamado_id: int):
-    chamado = buscar_chamado(chamado_id)
+    atual = chamados.buscar_por_id(chamado_id)
 
-    if chamado is None:
+    if atual is None:
         return False
 
-    chamados.remove(chamado)
+    chamados.excluir(chamado_id)
 
     return True
+
+
+def existe_chamado(chamado_id: int):
+    resultado = chamados.buscar_por_id(chamado_id)
+
+    return resultado is not None
