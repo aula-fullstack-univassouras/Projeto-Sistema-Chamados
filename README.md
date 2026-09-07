@@ -324,9 +324,12 @@ projeto-chamados/
 │   ├── services/
 │   │   └── service.py
 │   ├── controller.py
-│   └── router.py
+│   ├── router.py
+│   ├── main.py
+│   └── requirements.txt
 │
 ├── backend/database/
+│   ├── database
 │   └── 001_criar_tabela_chamados.sql
 │
 ├── docs/
@@ -350,9 +353,6 @@ projeto-chamados/
 │   └── test_chamados_validacao.py
 │
 ├── .gitignore
-├── database
-├── main.py
-├── requirements.txt
 └── README.md
 ```
 
