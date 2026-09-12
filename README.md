@@ -376,8 +376,8 @@ projeto-chamados/
 │   ├── controller.py
 │   ├── router.py
 │   ├── semana-5-api-chamados
-│       ├── main.py
-│       └── requirements.txt
+│   │   ├── main.py
+│   │   └── requirements.txt
 │   ├── main.py
 │   └── requirements.txt
 │
@@ -387,18 +387,18 @@ projeto-chamados/
 │
 ├── docs/
 │   ├──evidencias-semana-5/
-│       ├──1get.png
-│       ├──2get-chamados.png
-│       ├──3post-json.png
-│       ├──3post-resposta.png
-│       ├──4busca1.png
-│       ├──4busca2.png
-│       ├──5busca-outro.png
-│       ├──6validacao-pydantic1.png
-│       ├──6validacao-pydantic2.png
-│       ├──7desafio-adicional.png
-│       ├──8busca-status-aberto.png
-│       └──9busca-status-fechado.png
+│   │   ├──1get.png
+│   │   ├──2get-chamados.png
+│   │   ├──3post-json.png
+│   │   ├──3post-resposta.png
+│   │   ├──4busca1.png
+│   │   ├──4busca2.png
+│   │   ├──5busca-outro.png
+│   │   ├──6validacao-pydantic1.png
+│   │   ├──6validacao-pydantic2.png
+│   │   ├──7desafio-adicional.png
+│   │   ├──8busca-status-aberto.png
+│   │   └──9busca-status-fechado.png
 │   ├── API-CHAMADOS.md
 │   ├── api-chamados.md
 │   ├── contrato-api-chamados.md 
@@ -651,6 +651,7 @@ Entre os documentos estão:
 - `diagrama-arquitetura.md` — representação inicial da arquitetura do sistema.
 - `contrato-api-chamados.md` — contrato inicial da API de chamados, contendo recursos, endpoints, métodos HTTP, parâmetros, formatos JSON, respostas e códigos de status.
 - `API-CHAMADOS.md` — documentação relacionada à API implementada.
+- `evidencias-semana-5` — capturas de tela sobre a semana 5
 
 A documentação foi ampliada ao longo do desenvolvimento para acompanhar a evolução do projeto.
 
