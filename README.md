@@ -375,6 +375,9 @@ projeto-chamados/
 │   │   └── service.py
 │   ├── controller.py
 │   ├── router.py
+│   ├── semana-5-api-chamados
+│       ├── main.py
+│       └── requirements.txt
 │   ├── main.py
 │   └── requirements.txt
 │
@@ -383,6 +386,19 @@ projeto-chamados/
 │   └── 001_criar_tabela_chamados.sql
 │
 ├── docs/
+│   ├──evidencias-semana-5/
+│       ├──1get.png
+│       ├──2get-chamados.png
+│       ├──3post-json.png
+│       ├──3post-resposta.png
+│       ├──4busca1.png
+│       ├──4busca2.png
+│       ├──5busca-outro.png
+│       ├──6validacao-pydantic1.png
+│       ├──6validacao-pydantic2.png
+│       ├──7desafio-adicional.png
+│       ├──8busca-status-aberto.png
+│       └──9busca-status-fechado.png
 │   ├── API-CHAMADOS.md
 │   ├── api-chamados.md
 │   ├── contrato-api-chamados.md 
