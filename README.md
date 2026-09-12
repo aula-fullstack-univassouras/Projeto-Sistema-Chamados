@@ -285,6 +285,56 @@ A atividade da Semana 4 determina a realização de testes de criação válida,
 
 ---
 
+# Semana 5 - Primeira API de Chamados com FastAPI
+
+Na semana 5 foi construido uma versão executável do back-end do Sistema de Chamados utilizando **FastAPI**, **Uvicorn** e **Pydantic**. Nesta etapa, os dados são gerenciados temporariamente em memória.
+
+---
+
+## Instruções de Execução
+
+1. Crie e ative o seu ambiente virtual Python (`.venv`):
+   ```bash
+   python -m venv .venv
+   # No Windows: .venv\Scripts\activate
+   # No Linux/Mac: source .venv/bin/activate
+   ```
+2. Instale as dependências listadas no projeto (`fastapi` e `uvicorn`):
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Execute o servidor de desenvolvimento com recarregamento automático (`--reload`):
+   ```bash
+   uvicorn main:app --reload
+   ```
+4. Abra o navegador e acesse a documentação interativa baseada no Swagger UI:
+   **`http://127.0.0.1:8000/docs`**
+
+---
+
+## Endpoints Implementados
+- `GET /` — Retorna a mensagem de boas-vindas informando que a API está ativa.
+- `GET /chamados` — Lista todos os chamados cadastrados (inicialmente vazia).
+- `POST /chamados` — Cadastra um novo chamado validando os campos obrigatórios (*título*, *descrição* e *prioridade*) via Pydantic.
+- `GET /chamados/{id}` — Busca um chamado específico pelo seu identificador numérico.
+- `GET /chamados/status/{status_chamado}` — *(Desafio Adicional)* Retorna apenas os chamados filtrados pelo status informado.
+
+---
+
+## Evidências dos Testes
+
+| Rota / Teste Realizado |
+| :--- |
+| **GET /** (API Ativa) |
+| **GET /chamados** (Lista Vazia) |
+| **POST /chamados** (Sucesso 201 Created) |
+| **GET /chamados/{id}** (Busca por ID) |
+| **GET /chamados/999** (Erro 404 Not Found) |
+| **Validação Automática Pydantic** (Erro de Corpo) |
+| **Desafio Adicional** (Filtro por Status) |
+
+---
+
 # Tecnologias utilizadas
 
 O projeto utiliza as seguintes tecnologias:
